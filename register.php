@@ -1,3 +1,14 @@
+<?php
+if (isset($_POST['loginButton'])) {
+	//Login button is pressed
+}
+
+if (isset($_POST['registerButton'])) {
+	//Register button is pressed
+}
+
+?>
+
 <html>
 <head>
     <title>Welcome to Anniefy!</title>
