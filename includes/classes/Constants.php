@@ -13,4 +13,6 @@ class Constants
 	public static string $firstNameCharacters = "Your first name must be between 2 and 25 characters";
 	public static string $usernameCharacters = "Your username must be between 5 and 25 characters";
 	public static string $usernameTaken = "This username already exists";
+
+	public static string $loginFailed = "Your username or password was in correct";
 }
