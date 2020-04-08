@@ -6,7 +6,7 @@ html, body {
 
 #background {
     background-color: black;
-    background-image: url("../images/bg.jpg");
+    background-image: url(../images/bg.jpg);
     background-position: center;
     background-size: cover;
     display: table;
@@ -30,25 +30,29 @@ html, body {
 }
 
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-    color:    #ffffff;
+    color: #ffffff;
 }
+
 :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-    color:    #ffffff;
-    opacity:  1;
+    color: #ffffff;
+    opacity: 1;
 }
+
 ::-moz-placeholder { /* Mozilla Firefox 19+ */
-    color:    #ffffff;
-    opacity:  1;
+    color: #ffffff;
+    opacity: 1;
 }
+
 :-ms-input-placeholder { /* Internet Explorer 10-11 */
-    color:    #ffffff;
+    color: #ffffff;
 }
+
 ::-ms-input-placeholder { /* Microsoft Edge */
-    color:    #ffffff;
+    color: #ffffff;
 }
 
 ::placeholder { /* Most modern browsers support this now. */
-    color:    #ffffff;
+    color: #ffffff;
 }
 
 #inputContainer {
@@ -100,6 +104,7 @@ html, body {
     font-size: 12px;
     cursor: pointer;
 }
+
 .hasAccountText {
     text-align: center;
 }
@@ -127,8 +132,9 @@ html, body {
     padding: 0;
 }
 
-#loginText li{
+#loginText li {
     font-size: 20px;
     list-style-type: none;
-    padding: 10px;
+    padding: 5px 30px;
+    background: url(../images/icons/checkmark.png) no-repeat 0 0;
 }
