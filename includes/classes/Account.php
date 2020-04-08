@@ -4,7 +4,7 @@
 class Account
 {
 	private $con;
-	private $errorArray;
+	private array $errorArray;
 
 	public function __construct($con)
 	{
@@ -40,7 +40,7 @@ class Account
 	{
 		$encryptedPw = md5($pw);
 		$profilePic = "assets/images/profile-pics/head_emerald.png";
-		$date = date("Y-m-d");
+		$date = date("Y-m-d H:i:s");
 
 		return mysqli_query($this->con, "INSERT INTO users VALUES ('', '$un', '$fn', '$ln', '$em', '$encryptedPw', '$date', '$profilePic')");
 	}

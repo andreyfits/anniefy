@@ -1,12 +1,12 @@
 <?php
-include "includes/config.php";
-include "includes/classes/Account.php";
-include "includes/classes/Constants.php";
+require_once "includes/config.php";
+require_once "includes/classes/Account.php";
+require_once "includes/classes/Constants.php";
 
 $account = new Account($con);
 
-include "includes/handlers/register-handler.php";
-include "includes/handlers/login-handler.php";
+require_once "includes/handlers/register-handler.php";
+require_once "includes/handlers/login-handler.php";
 
 function getInputValue($name)
 {

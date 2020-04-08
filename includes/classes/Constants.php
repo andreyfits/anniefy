@@ -3,12 +3,12 @@
 
 class Constants
 {
-	public static $passwordsDoNotMatch = "Your passwords don't match";
-	public static $passwordNotAlphanumeric = "Your password can only contain numbers and letters";
-	public static $passwordCharacters = "Your password must be between 5 and 30 characters";
-	public static $emailInvalid = "Email is invalid";
-	public static $emailsDoNotMatch = "Your emails don't match";
-	public static $lastNameCharacters = "Your last name must be between 2 and 25 characters";
-	public static $firstNameCharacters = "Your first name must be between 2 and 25 characters";
-	public static $usernameCharacters = "Your username must be between 5 and 25 characters";
+	public static string $passwordsDoNotMatch = "Your passwords don't match";
+	public static string $passwordNotAlphanumeric = "Your password can only contain numbers and letters";
+	public static string $passwordCharacters = "Your password must be between 5 and 30 characters";
+	public static string $emailInvalid = "Email is invalid";
+	public static string $emailsDoNotMatch = "Your emails don't match";
+	public static string $lastNameCharacters = "Your last name must be between 2 and 25 characters";
+	public static string $firstNameCharacters = "Your first name must be between 2 and 25 characters";
+	public static string $usernameCharacters = "Your username must be between 5 and 25 characters";
 }
