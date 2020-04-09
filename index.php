@@ -16,7 +16,15 @@ if (isset($_SESSION['userLoggedIn'])) {
 <body>
 <div id="nowPlayingBarContainer">
     <div id="nowPlayingBar">
-        <div id="nowPlayingLeft"></div>
+        <div id="nowPlayingLeft">
+            <div class="content">
+                <span class="albumLink">
+                    <img src="https://clipartstation.com/wp-content/uploads/2018/10/square-shapes-clipart-4.jpg"
+                         class="albumArtwork"
+                         alt="">
+                </span>
+            </div>
+        </div>
         <div id="nowPlayingCenter">
             <div class="content playerControls">
                 <div class="buttons">
