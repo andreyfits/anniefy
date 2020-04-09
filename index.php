@@ -11,7 +11,10 @@ if (isset($_SESSION['userLoggedIn'])) {
 <!DOCTYPE html>
 <head>
     <title>Welcome to Anniefy!</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 <body>
-<?php echo "Hi, Anniefy!"; ?>
+<div id="nowPlayingBarContainer">
+
+</div>
 </body>
