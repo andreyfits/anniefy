@@ -23,6 +23,14 @@ if (isset($_SESSION['userLoggedIn'])) {
                          class="albumArtwork"
                          alt="">
                 </span>
+                <div class="trackInfo">
+                    <span class="trackName">
+                        <span>Happy Birthday</span>
+                    </span>
+                    <span class="artistName">
+                        <span>Andrey Fits</span>
+                    </span>
+                </div>
             </div>
         </div>
         <div id="nowPlayingCenter">
