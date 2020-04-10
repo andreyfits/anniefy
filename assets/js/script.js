@@ -1,3 +1,10 @@
+function array() {
+    return undefined;
+}
+
+var currentPlaylist = array();
+var audioElement;
+
 function Audio() {
 
     this.currentlyPlaying;
