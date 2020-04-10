@@ -21,8 +21,8 @@ $artist = $album->getArtist();
     </div>
 </div>
 
-<div class="tracklistContainer">
-    <ul class="tacklist">
+<div class="trackListContainer">
+    <ul class="trackList">
 		<?php
 		$songIdArray = $album->getSongIds();
 		$i = 1;
@@ -30,7 +30,7 @@ $artist = $album->getArtist();
 			$albumSong = new Song($con, $songId);
 			$albumArtist = $albumSong->getArtist();
 
-			echo "<li class='tracklistRow'>
+			echo "<li class='trackListRow'>
                       <div class='trackCount'>
                           <img src='assets/images/icons/play-white.png' class='play' alt='Play'>
                           <span class='trackNumber'>$i</span>
@@ -38,6 +38,12 @@ $artist = $album->getArtist();
                       <div class='trackInfo'>
                           <span class='trackName'>" . $albumSong->getTitle() . "</span>
                           <span class='artistName'>" . $albumArtist->getName() . "</span>
+                      </div>
+                      <div class='trackOptions'>
+                          <img src='assets/images/icons/more.png' alt='More' class='optionsButton'>
+                      </div>
+                      <div class='trackDuration'>
+                          <span class='duration'>" . $albumSong->getDuration() . "</span>
                       </div>
                   </li>";
 			$i++;
