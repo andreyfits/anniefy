@@ -1,5 +1,6 @@
 <?php
 require_once "includes/config.php";
+require_once "includes/classes/Artist.php";
 
 if (isset($_SESSION['userLoggedIn'])) {
 	$userLoggedIn = $_SESSION['userLoggedIn'];
