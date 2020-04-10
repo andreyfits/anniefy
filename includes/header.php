@@ -15,8 +15,14 @@ if (isset($_SESSION['userLoggedIn'])) {
 <head>
     <title>Welcome to Anniefy!</title>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <script src="assets/js/script.js"></script>
 </head>
 <body>
+<script>
+    var audioElement = new Audio();
+    audioElement.setTrack("assets/music/bensound-acousticbreeze.mp3");
+    audioElement.audio.play;
+</script>
 <div id="mainContainer">
     <div id="topContainer">
 		<?php require_once "includes/navBarContainer.php" ?>
