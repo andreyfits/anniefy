@@ -15,7 +15,9 @@ if (isset($_SESSION['userLoggedIn'])) {
 </head>
 <body>
 <div id="mainContainer">
-    <div id="topContainer"></div>
+    <div id="topContainer">
+        <div id="navBarContainer"></div>
+    </div>
     <div id="nowPlayingBarContainer">
         <div id="nowPlayingBar">
             <div id="nowPlayingLeft">
