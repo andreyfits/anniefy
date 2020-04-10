@@ -35,6 +35,10 @@ $artist = $album->getArtist();
                           <img src='assets/images/icons/play-white.png' class='play' alt='Play'>
                           <span class='trackNumber'>$i</span>
                       </div>
+                      <div class='trackInfo'>
+                          <span class='trackName'>" . $albumSong->getTitle() . "</span>
+                          <span class='artistName'>" . $albumArtist->getName() . "</span>
+                      </div>
                   </li>";
 			$i++;
 		}
