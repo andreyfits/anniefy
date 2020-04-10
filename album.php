@@ -25,9 +25,18 @@ $artist = $album->getArtist();
     <ul class="tacklist">
 		<?php
 		$songIdArray = $album->getSongIds();
-
+		$i = 1;
 		foreach ($songIdArray as $songId) {
-			echo $songId . "<br>";
+			$albumSong = new Song($con, $songId);
+			$albumArtist = $albumSong->getArtist();
+
+			echo "<li class='tracklistRow'>
+                      <div class='trackCount'>
+                          <img src='assets/images/icons/play-white.png' class='play' alt='Play'>
+                          <span class='trackNumber'>$i</span>
+                      </div>
+                  </li>";
+			$i++;
 		}
 		?>
     </ul>
