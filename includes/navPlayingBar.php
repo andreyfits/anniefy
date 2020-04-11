@@ -21,16 +21,19 @@ $jsonArray = json_encode($resultArray);
         $.post("includes/handlers/ajax/getSongJson.php", {songId: trackId}, function (data) {
 
             let track = JSON.parse(data);
-
             $(".trackName span").text(track.title);
 
             $.post("includes/handlers/ajax/getArtistJson.php", {artistId: track.artist}, function (data) {
                 let artist = JSON.parse(data);
-
                 $(".artistName span").text(artist.name);
             });
 
-            audioElement.setTrack(data.path);
+            $.post("includes/handlers/ajax/getAlbumJson.php", {albumId: track.album}, function (data) {
+                let album = JSON.parse(data);
+                $(".albumLink img").attr("src", album.artworkPath);
+            });
+
+            audioElement.setTrack(track.path);
             audioElement.play();
         });
 
@@ -57,16 +60,14 @@ $jsonArray = json_encode($resultArray);
         <div id="nowPlayingLeft">
             <div class="content">
                 <span class="albumLink">
-                    <img src="https://clipartstation.com/wp-content/uploads/2018/10/square-shapes-clipart-4.jpg"
-                         class="albumArtwork"
-                         alt="">
+                    <img src="" class="albumArtwork" alt="Album">
                 </span>
                 <div class="trackInfo">
                     <span class="trackName">
                         <span></span>
                     </span>
                     <span class="artistName">
-                        <span>Andrey Fits</span>
+                        <span></span>
                     </span>
                 </div>
             </div>
