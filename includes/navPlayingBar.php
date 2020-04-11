@@ -18,11 +18,18 @@ $jsonArray = json_encode($resultArray);
 
     function setTrack(trackId, newPlaylist, play) {
 
-        $.post("includes/handlers/ajax/getSongJson.php", { songId: trackId }, function (data) {
+        $.post("includes/handlers/ajax/getSongJson.php", {songId: trackId}, function (data) {
 
             let track = JSON.parse(data);
 
-            console.log(track);
+            $(".trackName span").text(track.title);
+
+            $.post("includes/handlers/ajax/getArtistJson.php", {artistId: track.artist}, function (data) {
+                let artist = JSON.parse(data);
+
+                $(".artistName span").text(artist.name);
+            });
+
             audioElement.setTrack(data.path);
             audioElement.play();
         });
@@ -56,7 +63,7 @@ $jsonArray = json_encode($resultArray);
                 </span>
                 <div class="trackInfo">
                     <span class="trackName">
-                        <span>Happy Birthday</span>
+                        <span></span>
                     </span>
                     <span class="artistName">
                         <span>Andrey Fits</span>
