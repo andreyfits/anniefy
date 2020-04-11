@@ -20,16 +20,16 @@ $jsonArray = json_encode($resultArray);
 
         $.post("includes/handlers/ajax/getSongJson.php", {songId: trackId}, function (data) {
 
-            let track = JSON.parse(data);
+            var track = JSON.parse(data);
             $(".trackName span").text(track.title);
 
             $.post("includes/handlers/ajax/getArtistJson.php", {artistId: track.artist}, function (data) {
-                let artist = JSON.parse(data);
+                var artist = JSON.parse(data);
                 $(".artistName span").text(artist.name);
             });
 
             $.post("includes/handlers/ajax/getAlbumJson.php", {albumId: track.album}, function (data) {
-                let album = JSON.parse(data);
+                var album = JSON.parse(data);
                 $(".albumLink img").attr("src", album.artworkPath);
             });
 
