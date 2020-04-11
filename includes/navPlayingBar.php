@@ -17,9 +17,14 @@ $jsonArray = json_encode($resultArray);
     });
 
     function setTrack(trackId, newPlaylist, play) {
+        audioElement.setTrack("assets/music/bensound-clearday.mp3");
 
+        if (play === true) {
+            audioElement.play();
+        }
     }
 </script>
+
 <div id="nowPlayingBarContainer">
     <div id="nowPlayingBar">
         <div id="nowPlayingLeft">

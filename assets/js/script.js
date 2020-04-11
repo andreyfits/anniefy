@@ -1,9 +1,5 @@
-function array() {
-    return undefined;
-}
-
-var currentPlaylist = array();
-var audioElement;
+let currentPlaylist = [];
+let audioElement;
 
 function Audio() {
 
@@ -12,5 +8,9 @@ function Audio() {
 
     this.setTrack = function (src) {
         this.audio.src = src;
+    };
+
+    this.play = function () {
+        this.audio.play();
     }
 }
