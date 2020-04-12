@@ -14,6 +14,7 @@ $jsonArray = json_encode($resultArray);
         currentPlaylist = <?php echo $jsonArray; ?>;
         audioElement = new Audio();
         setTrack(currentPlaylist[0], currentPlaylist, false);
+        updateVolumeProgressBar(audioElement.audio);
 
         $(".playbackBar .progressBar").mousedown(function () {
             mouseDown = true;
@@ -151,13 +152,13 @@ $jsonArray = json_encode($resultArray);
                     </button>
                 </div>
                 <div class="playbackBar">
-                    <span class="progressTime current">0.00</span>
+                    <span class="progressTime current">0:00</span>
                     <div class="progressBar">
                         <div class="progressBarBg">
                             <div class="progress"></div>
                         </div>
                     </div>
-                    <span class="progressTime remaining">0.00</span>
+                    <span class="progressTime remaining"></span>
                 </div>
             </div>
         </div>
