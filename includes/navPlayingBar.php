@@ -108,7 +108,43 @@ $jsonArray = json_encode($resultArray);
         $(".controlButton.volume img").attr("src", "assets/images/icons/" + imageName);
     }
 
+    function setShuffle() {
+        shuffle = !shuffle;
+        var imageName = shuffle ? "shuffle-active.png" : "shuffle.png";
+        $(".controlButton.shuffle img").attr("src", "assets/images/icons/" + imageName);
+
+        if (shuffle === true) {
+            //Randomize playlist
+            shuffleArray(shufflePlaylist);
+        }
+        else {
+            //shuffle has been deactivated
+            //go back to regular playlist
+        }
+    }
+
+    /**
+     * Shuffles array in place.
+     * @param {Array} a items An array containing the items.
+     */
+    function shuffleArray(a) {
+        var j, x, i;
+        for (i = a.length - 1; i > 0; i--) {
+            j = Math.floor(Math.random() * (i + 1));
+            x = a[i];
+            a[i] = a[j];
+            a[j] = x;
+        }
+        return a;
+    }
+
     function setTrack(trackId, newPlaylist, play) {
+
+        if (newPlaylist !== currentPlaylist) {
+            currentPlaylist = newPlaylist;
+            shufflePlaylist = currentPlaylist.slice();
+            shuffleArray(shufflePlaylist);
+        }
 
         currentIndex = currentPlaylist.indexOf(trackId);
         pauseSong();
@@ -177,7 +213,7 @@ $jsonArray = json_encode($resultArray);
         <div id="nowPlayingCenter">
             <div class="content playerControls">
                 <div class="buttons">
-                    <button class="controlButton shuffle" title="Shuffle button">
+                    <button class="controlButton shuffle" title="Shuffle button" onclick="setShuffle()">
                         <img src="assets/images/icons/shuffle.png" alt="Shuffle">
                     </button>
                     <button class="controlButton previous" title="Previous button" onclick="prevSong()">
