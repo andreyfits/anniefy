@@ -1,4 +1,4 @@
-<?php require_once "includes/header.php";
+<?php require_once "includes/includedFiles.php";
 
 if (isset($_GET['id'])) {
 	$albumId = $_GET['id'];
@@ -58,5 +58,3 @@ $artist = $album->getArtist();
 
     </ul>
 </div>
-
-<?php require_once "includes/footer.php" ?>
