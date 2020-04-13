@@ -1,4 +1,4 @@
-<?php require_once "includes/header.php" ?>
+<?php require_once "includes/includedFiles.php"; ?>
 
     <h1 class="pageHeadingBig">You Might Also like</h1>
     <div class="gridViewContainer">
@@ -14,5 +14,3 @@
 		}
 		?>
     </div>
-
-<?php require_once "includes/footer.php" ?>
