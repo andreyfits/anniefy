@@ -10,7 +10,8 @@ if (isset($_GET['term'])) {
 
 <div class="searchContainer">
     <h4>Search for an artist, album or song</h4>
-    <input type="text" class="searchInput" value="<?php echo $term; ?>" placeholder="Start typing..." onfocus="this.value = this.value">
+    <input type="text" class="searchInput" value="<?php echo $term; ?>" placeholder="Start typing..."
+           onfocus="this.value = this.value">
 </div>
 
 <script>
@@ -32,8 +33,8 @@ if (isset($_GET['term'])) {
 </script>
 
 <div class="trackListContainer borderBottom">
-	<h2>SONGS</h2>
-	<ul class="trackList">
+    <h2>SONGS</h2>
+    <ul class="trackList">
 		<?php
 
 		$songsQuery = mysqli_query($con, "SELECT id FROM songs WHERE title LIKE '$term%' LIMIT 10");
@@ -77,10 +78,34 @@ if (isset($_GET['term'])) {
 		}
 		?>
 
-		<script>
+        <script>
             var tempSongIds = '<?php echo json_encode($songIdArray); ?>';
             tempPlaylist = JSON.parse(tempSongIds);
-		</script>
+        </script>
 
-	</ul>
+    </ul>
+</div>
+
+<div class="artistsContainer borderBottom">
+    <h2>ARTISTS</h2>
+
+	<?php
+
+	$artistsQuery = mysqli_query($con, "SELECT id FROM artists WHERE name LIKE '$term%' LIMIT 10");
+
+	if (mysqli_num_rows($artistsQuery) == 0) {
+		echo "<span class='noResults'>No artists found matching " . $term . "</span>";
+	}
+
+	while ($row = mysqli_fetch_array($artistsQuery)) {
+		$artistFound = new Artist($con, $row['id']);
+
+		echo "<div class='searchResultRow'>
+			      <div class = 'artistName'>
+				      <span role='link' tabindex='0' onclick='openPage(\"artist.php?id=" . $artistFound->getId() . "\")'>" . $artistFound->getName() . "</span>
+                  </div>
+              </div>";
+	}
+
+	?>
 </div>
