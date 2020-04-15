@@ -42,7 +42,7 @@ $artistId = $artist->getId();
                           <span class='artistName'>" . $albumArtist->getName() . "</span>
                       </div>
                       <div class='trackOptions'>
-                          <img src='assets/images/icons/more.png' alt='More' class='optionsButton'>
+                          <img src='assets/images/icons/more.png' alt='More' class='optionsButton' onclick='showOptionsMenu(this)'>
                       </div>
                       <div class='trackDuration'>
                           <span class='duration'>" . $albumSong->getDuration() . "</span>
