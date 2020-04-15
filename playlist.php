@@ -11,55 +11,56 @@ $owner = new User($con, $playlist->getOwner());
 ?>
 
 <div class="entityInfo">
-	<div class="leftSection">
-		<img src="assets/images/icons/playlist.png" alt="Playlist">
-	</div>
-	<div class="rightSection">
-		<h2><?php echo $playlist->getName() ?></h2>
+    <div class="leftSection">
+        <div class="playlistImage">
+            <img src="assets/images/icons/playlist.png" alt="Playlist">
+        </div>
+    </div>
+    <div class="rightSection">
+        <h2><?php echo $playlist->getName() ?></h2>
         <p>By <?php echo $playlist->getOwner(); ?></p>
         <p><?php echo $playlist->getNumberOfSongs(); ?> songs</p>
         <button class="button">DELETE PLAYLIST</button>
-	</div>
+    </div>
 </div>
 
 <div class="trackListContainer">
-	<ul class="trackList">
+    <ul class="trackList">
 		<?php
 
-		$songIdArray = array(); //$album->getSongIds();
+		$songIdArray = $playlist->getSongIds();
 
-        $i = 1;
+		$i = 1;
 
-        foreach ($songIdArray as $songId) {
-			$albumSong = new Song($con, $songId);
-			$albumArtist = $albumSong->getArtist();
+		foreach ($songIdArray as $songId) {
+			$playlistSong = new Song($con, $songId);
+			$songArtist = $playlistSong->getArtist();
 
 			echo "<li class='trackListRow'>
                       <div class='trackCount'>
-                          <img src='assets/images/icons/play-white.png' class='play' alt='Play' onclick='setTrack(\"" .
-				$albumSong->getId() . "\", tempPlaylist, true)'>
+                          <img src='assets/images/icons/play-white.png' class='play' alt='Play' onclick='setTrack(\"" . $playlistSong->getId() . "\", tempPlaylist, true)'>
                           <span class='trackNumber'>$i</span>
                       </div>
                       <div class='trackInfo'>
-                          <span class='trackName'>" . $albumSong->getTitle() . "</span>
-                          <span class='artistName'>" . $albumArtist->getName() . "</span>
+                          <span class='trackName'>" . $playlistSong->getTitle() . "</span>
+                          <span class='artistName'>" . $songArtist->getName() . "</span>
                       </div>
                       <div class='trackOptions'>
                           <img src='assets/images/icons/more.png' alt='More' class='optionsButton'>
                       </div>
                       <div class='trackDuration'>
-                          <span class='duration'>" . $albumSong->getDuration() . "</span>
+                          <span class='duration'>" . $playlistSong->getDuration() . "</span>
                       </div>
                   </li>";
 			$i++;
 		}
 
-        ?>
+		?>
 
-		<script>
+        <script>
             var tempSongIds = '<?php echo json_encode($songIdArray); ?>';
             tempPlaylist = JSON.parse(tempSongIds);
-		</script>
+        </script>
 
-	</ul>
+    </ul>
 </div>
