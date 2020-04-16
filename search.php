@@ -69,7 +69,8 @@ if (isset($_GET['term'])) {
                           <span class='artistName'>" . $albumArtist->getName() . "</span>
                       </div>
                       <div class='trackOptions'>
-                          <img src='assets/images/icons/more.png' alt='More' class='optionsButton'>
+                          <input type='hidden' class='songId' value='" . $albumSong->getId() . "'>
+                          <img src='assets/images/icons/more.png' alt='More' class='optionsButton' onclick='showOptionsMenu(this)'>
                       </div>
                       <div class='trackDuration'>
                           <span class='duration'>" . $albumSong->getDuration() . "</span>
@@ -131,3 +132,8 @@ if (isset($_GET['term'])) {
 
 	?>
 </div>
+
+<nav class="optionsMenu">
+    <input type="hidden" class="songId">
+	<?php echo Playlist::getPlaylistsDropdown($con, $userLoggedIn->getUsername()); ?>
+</nav>

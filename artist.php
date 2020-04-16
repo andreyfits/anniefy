@@ -49,7 +49,8 @@ $artist = new Artist($con, $artistId);
                           <span class='artistName'>" . $albumArtist->getName() . "</span>
                       </div>
                       <div class='trackOptions'>
-                          <img src='assets/images/icons/more.png' alt='More' class='optionsButton'>
+                          <input type='hidden' class='songId' value='" . $albumSong->getId() . "'>
+                          <img src='assets/images/icons/more.png' alt='More' class='optionsButton' onclick='showOptionsMenu(this)'>
                       </div>
                       <div class='trackDuration'>
                           <span class='duration'>" . $albumSong->getDuration() . "</span>
@@ -73,7 +74,7 @@ $artist = new Artist($con, $artistId);
 	$albumQuery = mysqli_query($con, "SELECT * FROM albums WHERE artist='$artistId'");
 	while ($row = mysqli_fetch_array($albumQuery)) {
 		echo "<div class='gridViewItem'>
-				      <span role='link' tabindex='0' onclick='openPage(\"album.php?id=" . $row['id'] . "\")'>
+			  <span role='link' tabindex='0' onclick='openPage(\"album.php?id=" . $row['id'] . "\")'>
 					      <img src='" . $row['artworkPath'] . "' alt='Album'>
 						  <div class='gridViewInfo'>" . $row['title'] . "</div>
 					  </span>
@@ -81,3 +82,8 @@ $artist = new Artist($con, $artistId);
 	}
 	?>
 </div>
+
+<nav class="optionsMenu">
+    <input type="hidden" class="songId">
+	<?php echo Playlist::getPlaylistsDropdown($con, $userLoggedIn->getUsername()); ?>
+</nav>
