@@ -1,12 +1,15 @@
 <?php
 require_once "includes/config.php";
+require_once "includes/classes/User.php";
 require_once "includes/classes/Artist.php";
 require_once "includes/classes/Album.php";
 require_once "includes/classes/Song.php";
+require_once "includes/classes/Playlist.php";
 
 if (isset($_SESSION['userLoggedIn'])) {
-	$userLoggedIn = $_SESSION['userLoggedIn'];
-    echo "<script>userLoggedIn = '$userLoggedIn';</script>";
+	$userLoggedIn = new User($con, $_SESSION['userLoggedIn']);
+	$username = $userLoggedIn->getUsername();
+	echo "<script>userLoggedIn = '$username';</script>";
 } else {
 	header("Location: register.php");
 }
