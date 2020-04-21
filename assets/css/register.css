@@ -74,6 +74,7 @@ html, body {
     height: 27px;
     line-height: 27px;
     width: 100%;
+    outline: none;
 }
 
 #inputContainer label {
@@ -94,6 +95,7 @@ html, body {
     margin: 20px auto;
     height: 41px;
     width: 100%;
+    outline: none;
 }
 
 #inputContainer button:hover {

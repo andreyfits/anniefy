@@ -278,6 +278,7 @@ body {
 .entityInfo .rightSection p {
     color: #939393;
     font-weight: 200;
+    outline: none;
 }
 
 .trackList {
@@ -414,9 +415,10 @@ body {
     letter-spacing: 2px;
 }
 
-input:focus {
+button, span, input:focus {
     outline: none;
 }
+
 
 .searchResultRow {
     padding: 15px 10px;
